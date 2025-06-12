@@ -40,6 +40,8 @@ import { ShopComponent } from './shop/shop.component';
 
 // TODO: #9. Add the power of @angular/cdk/a11y
 import { A11yModule } from '@angular/cdk/a11y';
+import { FillingPopularityChartComponent } from './shop/filling-popularity-chart/filling-popularity-chart.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     DumplingComponent,
     ColorPickerComponent,
     ColorPickerDialogComponent,
+    FillingPopularityChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatToolbarModule,
     GoogleMapsModule,
     A11yModule,
+    NgChartsModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent]

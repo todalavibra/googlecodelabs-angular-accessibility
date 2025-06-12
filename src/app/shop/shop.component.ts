@@ -28,11 +28,16 @@ export class ShopComponent implements OnInit {
   // TODO: #7. Create selectable controls with Angular Material
   fillings: string[] = ['Bok Choy & Chili Crunch', 'Tofu & Mushroom', 'Chicken & Ginger', 'Impossible Meat & Spinach'];
   selectedFillings: string[] = [];
+  fillingCounts: {[key: string]: number} = {};
 
   // TODO: #11. Announce changes with LiveAnnouncer
   constructor(private liveAnnouncer: LiveAnnouncer) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.fillings.forEach(filling => {
+      this.fillingCounts[filling] = 0;
+    });
+  }
 
   counter(i: number): Array<number> {
     return new Array(i);
@@ -48,6 +53,11 @@ export class ShopComponent implements OnInit {
     // TODO: #7. Create selectable controls with Angular Material
     this.selectedFillings.forEach(filling => {
       flavor = flavor + ' ' + filling;
+      if (this.fillingCounts[filling]) {
+        this.fillingCounts[filling]++;
+      } else {
+        this.fillingCounts[filling] = 1;
+      }
     });
 
     const fakePurchase = `Purchase ${this.quantity} ${flavor}dumplings in the color ${this.color}!`;
